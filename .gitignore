@@ -5,6 +5,8 @@
 
 # Dependências
 node_modules/
+.venv/
+__pycache__/
 
 # Vercel
 .vercel
