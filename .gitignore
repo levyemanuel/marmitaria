@@ -1,0 +1,10 @@
+# Variáveis de ambiente (contêm a senha do banco): nunca versionar
+.env
+.env.*
+!.env.example
+
+# Dependências
+node_modules/
+
+# Vercel
+.vercel
