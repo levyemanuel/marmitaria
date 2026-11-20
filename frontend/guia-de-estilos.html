@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia de estilos — Sabor Caseiro</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+  <style>
+    .secao-guia { margin-bottom: var(--esp-7); }
+    .linha { display: flex; flex-wrap: wrap; gap: var(--esp-3); align-items: center; }
+    .amostra { width: 120px; }
+    .amostra__cor { height: 64px; border-radius: var(--raio-p); border: 1px solid var(--cor-borda); }
+    .amostra code { font-size: 0.75rem; }
+  </style>
+</head>
+<body data-pagina="">
+  <div id="cabecalho"></div>
+
+  <main class="principal">
+    <div class="container">
+      <div class="cabecalho-pagina">
+        <div>
+          <h1 class="cabecalho-pagina__titulo">Guia de estilos</h1>
+          <p class="cabecalho-pagina__subtitulo">
+            Componentes compartilhados para as telas de categorias e pratos.
+            Use estas classes para manter o visual igual em todo o sistema.
+          </p>
+        </div>
+      </div>
+
+      <section class="secao-guia">
+        <h2>Cores</h2>
+        <div class="linha">
+          <div class="amostra"><div class="amostra__cor" style="background:var(--cor-primaria)"></div><code>--cor-primaria</code></div>
+          <div class="amostra"><div class="amostra__cor" style="background:var(--cor-primaria-clara)"></div><code>--cor-primaria-clara</code></div>
+          <div class="amostra"><div class="amostra__cor" style="background:var(--cor-secundaria)"></div><code>--cor-secundaria</code></div>
+          <div class="amostra"><div class="amostra__cor" style="background:var(--cor-fundo)"></div><code>--cor-fundo</code></div>
+          <div class="amostra"><div class="amostra__cor" style="background:var(--cor-texto)"></div><code>--cor-texto</code></div>
+          <div class="amostra"><div class="amostra__cor" style="background:var(--cor-erro)"></div><code>--cor-erro</code></div>
+        </div>
+      </section>
+
+      <section class="secao-guia">
+        <h2>Botões</h2>
+        <div class="linha">
+          <button class="botao botao--primario" type="button">Salvar</button>
+          <button class="botao botao--secundario" type="button">Cancelar</button>
+          <button class="botao botao--perigo" type="button">Excluir</button>
+          <button class="botao botao--primario botao--pequeno" type="button">Editar</button>
+          <button class="botao botao--primario" type="button" disabled>Desabilitado</button>
+        </div>
+      </section>
+
+      <section class="secao-guia">
+        <h2>Tabela (lista de categorias)</h2>
+        <div class="tabela-wrapper">
+          <table class="tabela">
+            <thead>
+              <tr><th>Categoria</th><th>Descrição</th><th class="tabela__numero">Pratos</th><th class="sr-only">Ações</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Carnes</strong></td>
+                <td class="texto-suave">Bife, picadinho e carne de panela</td>
+                <td class="tabela__numero"><span class="selo selo--primario">4</span></td>
+                <td><div class="tabela__acoes">
+                  <a class="botao botao--secundario botao--pequeno" href="#">Ver pratos</a>
+                  <button class="botao botao--primario botao--pequeno" type="button">Editar</button>
+                  <button class="botao botao--perigo botao--pequeno" type="button" data-demo="excluir">Excluir</button>
+                </div></td>
+              </tr>
+              <tr>
+                <td><strong>Vegetarianos</strong></td>
+                <td class="texto-suave">Opções sem carne</td>
+                <td class="tabela__numero"><span class="selo selo--neutro">0</span></td>
+                <td><div class="tabela__acoes">
+                  <a class="botao botao--secundario botao--pequeno" href="#">Ver pratos</a>
+                  <button class="botao botao--primario botao--pequeno" type="button">Editar</button>
+                  <button class="botao botao--perigo botao--pequeno" type="button" data-demo="excluir">Excluir</button>
+                </div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="secao-guia">
+        <h2>Cartões (lista de pratos)</h2>
+        <div class="grade-cartoes">
+          <article class="cartao">
+            <span class="selo selo--sucesso">Disponível</span>
+            <h3 class="cartao__titulo" style="margin-top:var(--esp-2)">Frango à parmegiana</h3>
+            <p class="texto-suave">Arroz, feijão, purê e salada.</p>
+            <p class="preco" data-preco="22.9"></p>
+            <div class="cartao__rodape">
+              <button class="botao botao--primario botao--pequeno" type="button">Editar</button>
+              <button class="botao botao--perigo botao--pequeno" type="button" data-demo="excluir">Excluir</button>
+            </div>
+          </article>
+          <article class="cartao">
+            <span class="selo selo--neutro">Esgotado</span>
+            <h3 class="cartao__titulo" style="margin-top:var(--esp-2)">Carne de panela</h3>
+            <p class="texto-suave">Arroz, feijão, macarrão e farofa.</p>
+            <p class="preco" data-preco="24.5"></p>
+            <div class="cartao__rodape">
+              <button class="botao botao--primario botao--pequeno" type="button">Editar</button>
+              <button class="botao botao--perigo botao--pequeno" type="button" data-demo="excluir">Excluir</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="secao-guia">
+        <h2>Formulário (cadastro/edição)</h2>
+        <form class="formulario cartao" id="form-demo" novalidate>
+          <div class="campo">
+            <label class="campo__rotulo" for="nome">Nome <span class="campo__obrigatorio">*</span></label>
+            <input class="campo__entrada" id="nome" name="nome" type="text" placeholder="Ex.: Frango assado" />
+            <span class="campo__erro"></span>
+          </div>
+          <div class="campo">
+            <label class="campo__rotulo" for="preco">Preço (R$) <span class="campo__obrigatorio">*</span></label>
+            <input class="campo__entrada" id="preco" name="preco" type="number" step="0.01" placeholder="0,00" />
+            <span class="campo__ajuda">Deve ser maior que zero.</span>
+            <span class="campo__erro"></span>
+          </div>
+          <div class="campo">
+            <label class="campo__rotulo" for="categoria">Categoria <span class="campo__obrigatorio">*</span></label>
+            <select class="campo__entrada" id="categoria" name="categoria">
+              <option value="">Selecione...</option>
+              <option>Carnes</option>
+              <option>Aves</option>
+            </select>
+            <span class="campo__erro"></span>
+          </div>
+          <div class="campo">
+            <label class="campo__rotulo" for="descricao">Descrição</label>
+            <textarea class="campo__entrada" id="descricao" name="descricao"></textarea>
+          </div>
+          <div class="formulario__acoes">
+            <button class="botao botao--primario" type="submit">Salvar</button>
+            <button class="botao botao--secundario" type="reset">Limpar</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="secao-guia">
+        <h2>Alertas e notificações</h2>
+        <div class="alerta alerta--sucesso">Categoria cadastrada com sucesso.</div>
+        <div class="alerta alerta--erro">Não é possível excluir uma categoria que ainda possui pratos.</div>
+        <div class="alerta alerta--aviso">Já existe uma categoria com esse nome.</div>
+        <div class="alerta alerta--info">Os preços são exibidos em reais (R$).</div>
+        <div class="linha">
+          <button class="botao botao--secundario" type="button" data-notificar="sucesso">Notificação de sucesso</button>
+          <button class="botao botao--secundario" type="button" data-notificar="erro">Notificação de erro</button>
+        </div>
+      </section>
+
+      <section class="secao-guia">
+        <h2>Estados vazio e carregando</h2>
+        <div class="estado-vazio">
+          <div class="estado-vazio__icone" aria-hidden="true">🍽️</div>
+          <p>Nenhum prato cadastrado nesta categoria.</p>
+          <a class="botao botao--primario" href="#">+ Cadastrar prato</a>
+        </div>
+        <div class="carregando">Carregando cardápio...</div>
+      </section>
+    </div>
+  </main>
+
+  <div id="rodape"></div>
+
+  <script src="js/layout.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    // Somente para demonstração dos componentes neste guia.
+    document.querySelectorAll("[data-preco]").forEach((el) => {
+      el.textContent = SaborCaseiro.formatarPreco(el.dataset.preco);
+    });
+
+    document.querySelectorAll("[data-notificar]").forEach((botao) => {
+      botao.addEventListener("click", () => {
+        const tipo = botao.dataset.notificar;
+        const texto = tipo === "sucesso" ? "Prato salvo com sucesso!" : "Erro ao conectar com o servidor.";
+        SaborCaseiro.notificar(texto, tipo);
+      });
+    });
+
+    document.querySelectorAll('[data-demo="excluir"]').forEach((botao) => {
+      botao.addEventListener("click", async () => {
+        const ok = await SaborCaseiro.confirmar("Tem certeza que deseja excluir este item?", "Excluir");
+        SaborCaseiro.notificar(ok ? "Item excluído." : "Exclusão cancelada.", ok ? "sucesso" : "info");
+      });
+    });
+
+    document.getElementById("form-demo").addEventListener("submit", (evento) => {
+      evento.preventDefault();
+      const form = evento.target;
+      SaborCaseiro.limparErrosFormulario(form);
+      if (!form.nome.value.trim()) SaborCaseiro.mostrarErroCampo("nome", "Informe o nome do prato.");
+      if (!(Number(form.preco.value) > 0)) SaborCaseiro.mostrarErroCampo("preco", "O preço deve ser maior que zero.");
+      if (!form.categoria.value) SaborCaseiro.mostrarErroCampo("categoria", "Selecione uma categoria.");
+      if (!form.querySelector(".campo--invalido")) SaborCaseiro.notificar("Formulário válido!", "sucesso");
+    });
+  </script>
+</body>
+</html>

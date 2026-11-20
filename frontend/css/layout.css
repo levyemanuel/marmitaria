@@ -1,0 +1,236 @@
+/* ==========================================================================
+   Sabor Caseiro — layout.css
+   Estrutura da página: cabeçalho, menu de navegação, conteúdo e rodapé.
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0 var(--esp-4);
+}
+
+/* ---------- Cabeçalho ---------- */
+.cabecalho {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--cor-superficie);
+  border-bottom: 1px solid var(--cor-borda);
+  box-shadow: var(--sombra-p);
+}
+
+.cabecalho__conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--altura-cabecalho);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-2);
+  color: var(--cor-texto);
+  font-family: var(--fonte-titulo);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.logo__icone {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.logo__destaque {
+  color: var(--cor-primaria);
+}
+
+/* ---------- Menu de navegação ---------- */
+.menu__lista {
+  display: flex;
+  gap: var(--esp-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu__link {
+  display: block;
+  padding: var(--esp-2) var(--esp-4);
+  border-radius: var(--raio-p);
+  color: var(--cor-texto-suave);
+  font-weight: 700;
+  transition: background var(--transicao), color var(--transicao);
+}
+
+.menu__link:hover {
+  background: var(--cor-primaria-clara);
+  color: var(--cor-primaria-escura);
+  text-decoration: none;
+}
+
+.menu__link--ativo,
+.menu__link[aria-current="page"] {
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+.menu__link--ativo:hover,
+.menu__link[aria-current="page"]:hover {
+  background: var(--cor-primaria-escura);
+  color: #fff;
+}
+
+/* Botão "hambúrguer" (só aparece no celular) */
+.menu__botao {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-p);
+  background: var(--cor-superficie);
+  cursor: pointer;
+}
+
+.menu__botao-linha {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 4px auto;
+  background: var(--cor-texto);
+  transition: transform var(--transicao), opacity var(--transicao);
+}
+
+.menu__botao[aria-expanded="true"] .menu__botao-linha:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu__botao[aria-expanded="true"] .menu__botao-linha:nth-child(2) {
+  opacity: 0;
+}
+
+.menu__botao[aria-expanded="true"] .menu__botao-linha:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* ---------- Trilha de navegação (breadcrumb) ---------- */
+.trilha {
+  margin: var(--esp-5) 0 var(--esp-2);
+  font-size: 0.9rem;
+}
+
+.trilha__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--cor-texto-suave);
+}
+
+.trilha__item + .trilha__item::before {
+  content: "›";
+  margin-right: var(--esp-2);
+}
+
+/* ---------- Conteúdo principal ---------- */
+.principal {
+  flex: 1;
+  padding-bottom: var(--esp-7);
+}
+
+.cabecalho-pagina {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--esp-4);
+  margin: var(--esp-5) 0;
+}
+
+.cabecalho-pagina__titulo {
+  margin: 0;
+}
+
+.cabecalho-pagina__subtitulo {
+  margin: var(--esp-1) 0 0;
+  color: var(--cor-texto-suave);
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  background: var(--cor-texto);
+  color: #e9e1d8;
+  padding: var(--esp-6) 0 var(--esp-5);
+  font-size: 0.9rem;
+}
+
+.rodape__conteudo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--esp-5);
+}
+
+.rodape__titulo {
+  margin-bottom: var(--esp-2);
+  color: #fff;
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+}
+
+.rodape a {
+  color: #fdba74;
+}
+
+.rodape__lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rodape__copyright {
+  margin-top: var(--esp-5);
+  padding-top: var(--esp-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  color: #b7a99b;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 720px) {
+  .menu__botao {
+    display: block;
+  }
+
+  .menu {
+    position: absolute;
+    top: var(--altura-cabecalho);
+    left: 0;
+    right: 0;
+    display: none;
+    background: var(--cor-superficie);
+    border-bottom: 1px solid var(--cor-borda);
+    box-shadow: var(--sombra-m);
+  }
+
+  .menu--aberto {
+    display: block;
+  }
+
+  .menu__lista {
+    flex-direction: column;
+    padding: var(--esp-3) var(--esp-4);
+  }
+
+  .menu__link {
+    padding: var(--esp-3) var(--esp-4);
+  }
+}

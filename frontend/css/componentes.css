@@ -1,0 +1,424 @@
+/* ==========================================================================
+   Sabor Caseiro — componentes.css
+   Componentes reutilizáveis por todas as telas: botões, cartões, tabelas,
+   formulários, alertas, selos (badges), estado vazio e modal de confirmação.
+   Veja exemplos de uso em guia-de-estilos.html.
+   ========================================================================== */
+
+/* ---------- Botões ---------- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--esp-2);
+  min-height: 42px;
+  padding: var(--esp-2) var(--esp-5);
+  border: 2px solid transparent;
+  border-radius: var(--raio-p);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transicao), border-color var(--transicao),
+    color var(--transicao), transform var(--transicao);
+}
+
+.botao:hover {
+  text-decoration: none;
+}
+
+.botao:active {
+  transform: translateY(1px);
+}
+
+.botao:disabled,
+.botao[aria-disabled="true"] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.botao--primario {
+  background: var(--cor-primaria);
+  color: #fff;
+}
+
+.botao--primario:hover {
+  background: var(--cor-primaria-escura);
+}
+
+.botao--secundario {
+  background: var(--cor-superficie);
+  border-color: var(--cor-borda);
+  color: var(--cor-texto);
+}
+
+.botao--secundario:hover {
+  border-color: var(--cor-primaria);
+  color: var(--cor-primaria);
+}
+
+.botao--perigo {
+  background: var(--cor-erro);
+  color: #fff;
+}
+
+.botao--perigo:hover {
+  background: #991b1b;
+}
+
+.botao--pequeno {
+  min-height: 34px;
+  padding: var(--esp-1) var(--esp-3);
+  font-size: 0.85rem;
+}
+
+/* ---------- Cartões ---------- */
+.cartao {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-m);
+  box-shadow: var(--sombra-p);
+  padding: var(--esp-5);
+}
+
+.cartao__titulo {
+  margin-bottom: var(--esp-2);
+}
+
+.cartao__rodape {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-2);
+  margin-top: var(--esp-4);
+}
+
+.grade-cartoes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--esp-5);
+}
+
+/* ---------- Tabelas ---------- */
+.tabela-wrapper {
+  overflow-x: auto;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-m);
+  box-shadow: var(--sombra-p);
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.tabela th,
+.tabela td {
+  padding: var(--esp-3) var(--esp-4);
+  text-align: left;
+  border-bottom: 1px solid var(--cor-borda);
+  vertical-align: middle;
+}
+
+.tabela th {
+  background: var(--cor-primaria-clara);
+  color: var(--cor-primaria-escura);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tabela tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tabela tbody tr:hover {
+  background: #fffaf5;
+}
+
+.tabela__acoes {
+  display: flex;
+  gap: var(--esp-2);
+  justify-content: flex-end;
+  white-space: nowrap;
+}
+
+.tabela__numero {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Formulários ---------- */
+.formulario {
+  display: grid;
+  gap: var(--esp-4);
+  max-width: 640px;
+}
+
+.campo {
+  display: grid;
+  gap: var(--esp-1);
+}
+
+.campo__rotulo {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.campo__obrigatorio {
+  color: var(--cor-erro);
+}
+
+.campo__entrada {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--esp-2) var(--esp-3);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-p);
+  background: var(--cor-superficie);
+  color: var(--cor-texto);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+textarea.campo__entrada {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.campo__entrada:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px var(--cor-primaria-clara);
+}
+
+.campo__ajuda {
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+.campo__erro {
+  display: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--cor-erro);
+}
+
+/* Aplicar .campo--invalido na <div class="campo"> quando houver erro */
+.campo--invalido .campo__entrada {
+  border-color: var(--cor-erro);
+  background: #fffafa;
+}
+
+.campo--invalido .campo__erro {
+  display: block;
+}
+
+.formulario__acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-3);
+  margin-top: var(--esp-2);
+}
+
+/* ---------- Alertas / mensagens ---------- */
+.alerta {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--esp-3);
+  margin-bottom: var(--esp-4);
+  padding: var(--esp-3) var(--esp-4);
+  border-left: 4px solid;
+  border-radius: var(--raio-p);
+  font-weight: 600;
+}
+
+.alerta--sucesso { background: var(--cor-sucesso-fundo); border-color: var(--cor-sucesso); color: #14532d; }
+.alerta--erro    { background: var(--cor-erro-fundo);    border-color: var(--cor-erro);    color: #7f1d1d; }
+.alerta--aviso   { background: var(--cor-aviso-fundo);   border-color: var(--cor-aviso);   color: #713f12; }
+.alerta--info    { background: var(--cor-info-fundo);    border-color: var(--cor-info);    color: #1e3a8a; }
+
+.alerta__fechar {
+  margin-left: auto;
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Área fixa para notificações temporárias (usada por SaborCaseiro.notificar) */
+.notificacoes {
+  position: fixed;
+  right: var(--esp-4);
+  bottom: var(--esp-4);
+  z-index: 300;
+  display: grid;
+  gap: var(--esp-2);
+  width: min(360px, calc(100vw - 2rem));
+}
+
+.notificacoes .alerta {
+  margin: 0;
+  box-shadow: var(--sombra-m);
+  animation: entrar 0.25s ease;
+}
+
+@keyframes entrar {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Selos (badges) e preço ---------- */
+.selo {
+  display: inline-block;
+  padding: 2px var(--esp-2);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.selo--primario  { background: var(--cor-primaria-clara);   color: var(--cor-primaria-escura); }
+.selo--sucesso   { background: var(--cor-secundaria-clara); color: var(--cor-secundaria); }
+.selo--neutro    { background: #f1ebe4; color: var(--cor-texto-suave); }
+
+.preco {
+  color: var(--cor-secundaria);
+  font-weight: 800;
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Estado vazio e carregando ---------- */
+.estado-vazio {
+  padding: var(--esp-7) var(--esp-4);
+  text-align: center;
+  color: var(--cor-texto-suave);
+  background: var(--cor-superficie);
+  border: 2px dashed var(--cor-borda);
+  border-radius: var(--raio-m);
+}
+
+.estado-vazio__icone {
+  font-size: 2.5rem;
+  margin-bottom: var(--esp-2);
+}
+
+.carregando {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--esp-3);
+  padding: var(--esp-6);
+  color: var(--cor-texto-suave);
+}
+
+.carregando::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--cor-primaria-clara);
+  border-top-color: var(--cor-primaria);
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Modal de confirmação ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--esp-4);
+  background: rgba(43, 33, 24, 0.55);
+}
+
+.modal--aberto {
+  display: flex;
+}
+
+.modal__caixa {
+  width: min(440px, 100%);
+  padding: var(--esp-5);
+  background: var(--cor-superficie);
+  border-radius: var(--raio-m);
+  box-shadow: var(--sombra-m);
+}
+
+.modal__acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--esp-3);
+  margin-top: var(--esp-5);
+}
+
+/* ---------- Seção de destaque (página inicial) ---------- */
+.destaque {
+  margin: var(--esp-5) 0 var(--esp-6);
+  padding: var(--esp-7) var(--esp-6);
+  border-radius: var(--raio-g);
+  background:
+    radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.18), transparent 40%),
+    linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+  color: #fff;
+}
+
+.destaque h1 {
+  color: #fff;
+  max-width: 16ch;
+}
+
+.destaque p {
+  max-width: 52ch;
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+.destaque .botao--secundario {
+  border-color: #fff;
+}
+
+.atalho {
+  display: block;
+  color: inherit;
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.atalho:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-m);
+  text-decoration: none;
+}
+
+.atalho__icone {
+  font-size: 2rem;
+  margin-bottom: var(--esp-2);
+}
+
+@media (max-width: 720px) {
+  .destaque {
+    padding: var(--esp-6) var(--esp-5);
+  }
+
+  .modal__acoes,
+  .formulario__acoes {
+    flex-direction: column-reverse;
+  }
+
+  .modal__acoes .botao,
+  .formulario__acoes .botao {
+    width: 100%;
+  }
+}

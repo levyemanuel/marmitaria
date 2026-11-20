@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+  MODELO DE PÁGINA — Sabor Caseiro
+  Copie este arquivo para criar uma nova tela (ex.: categorias.html, pratos.html).
+  1. Troque o <title> e o data-pagina do <body> ("categorias" ou "pratos").
+  2. Coloque o conteúdo da tela dentro de <div class="container">.
+  3. Adicione o script específico da tela depois de layout.js e ui.js.
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Título da tela — Sabor Caseiro</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+</head>
+<body data-pagina="categorias">
+  <div id="cabecalho"></div>
+
+  <main class="principal">
+    <div class="container">
+      <nav class="trilha" aria-label="Você está em">
+        <ol class="trilha__lista">
+          <li class="trilha__item"><a href="index.html">Início</a></li>
+          <li class="trilha__item" aria-current="page">Título da tela</li>
+        </ol>
+      </nav>
+
+      <div class="cabecalho-pagina">
+        <div>
+          <h1 class="cabecalho-pagina__titulo">Título da tela</h1>
+          <p class="cabecalho-pagina__subtitulo">Uma frase explicando o que a tela faz.</p>
+        </div>
+        <a class="botao botao--primario" href="#">+ Novo item</a>
+      </div>
+
+      <!-- Conteúdo da tela aqui (tabela, formulário, cartões...) -->
+      <div class="estado-vazio">
+        <div class="estado-vazio__icone" aria-hidden="true">🍽️</div>
+        <p>Nenhum item cadastrado ainda.</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="rodape"></div>
+
+  <script src="js/layout.js"></script>
+  <script src="js/ui.js"></script>
+  <!-- <script src="js/categorias.js"></script> -->
+</body>
+</html>
