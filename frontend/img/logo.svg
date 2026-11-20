@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sabor Caseiro">
+  <circle cx="32" cy="32" r="32" fill="#c2410c"/>
+  <!-- vapor -->
+  <path d="M24 14c-2 3 2 5 0 8M32 12c-2 3 2 5 0 8M40 14c-2 3 2 5 0 8" stroke="#ffedd5" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- tampa -->
+  <rect x="14" y="26" width="36" height="5" rx="2.5" fill="#ffedd5"/>
+  <!-- marmita -->
+  <path d="M16 32h32l-3 14a4 4 0 0 1-4 3H23a4 4 0 0 1-4-3z" fill="#fff"/>
+  <!-- folha -->
+  <path d="M28 41c2-5 7-6 10-5-1 4-5 7-10 5z" fill="#3f6212"/>
+</svg>
