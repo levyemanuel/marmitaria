@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Lista de pratos por categoria do cardápio Sabor Caseiro." />
+  <title>Pratos — Sabor Caseiro</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+  <link rel="stylesheet" href="css/jose.css" />
+</head>
+<body data-pagina="pratos" data-tela="pratos-lista">
+  <div id="cabecalho"></div>
+  <main class="principal">
+    <div class="container">
+      <nav class="trilha" aria-label="Você está em"><ol class="trilha__lista">
+        <li class="trilha__item"><a href="index.html">Início</a></li>
+        <li class="trilha__item" aria-current="page">Pratos</li>
+      </ol></nav>
+      <div class="cabecalho-pagina">
+        <div><h1 id="titulo-lista" class="cabecalho-pagina__titulo" tabindex="-1">Pratos</h1>
+          <p class="cabecalho-pagina__subtitulo">Receitas da casa, organizadas por categoria e com o preço sempre em dia.</p></div>
+        <a id="novo-prato" class="botao botao--primario" href="prato-formulario.html">+ Novo prato</a>
+      </div>
+      <div id="mensagem" role="status" hidden></div>
+      <div class="barra-lista">
+        <div class="campo">
+          <label class="campo__rotulo" for="filtro-categoria">Categoria</label>
+          <select id="filtro-categoria" class="campo__entrada" disabled><option value="">Todas as categorias</option></select>
+        </div>
+        <p id="resumo-lista" class="resumo-lista" role="status"></p>
+      </div>
+      <div id="carregando" class="carregando" role="status">Carregando pratos…</div>
+      <button id="tentar-novamente" class="botao botao--secundario" type="button" hidden>Tentar novamente</button>
+      <div id="estado-vazio" class="estado-vazio" hidden>
+        <div class="estado-vazio__icone" aria-hidden="true">🍛</div>
+        <p id="texto-vazio">Nenhum prato cadastrado ainda.</p>
+        <a id="acao-vazio" class="botao botao--primario" href="prato-formulario.html">Cadastrar primeiro prato</a>
+      </div>
+      <div id="lista-pratos" class="lista-pratos" aria-busy="true" hidden></div>
+      <noscript><p class="alerta alerta--aviso">Ative o JavaScript para consultar os pratos e usar os formulários.</p></noscript>
+    </div>
+  </main>
+  <div id="rodape"></div>
+  <script src="js/layout.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/pratos.js"></script>
+</body>
+</html>

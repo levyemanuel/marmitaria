@@ -1,0 +1,36 @@
+/* José — complementos das telas; os componentes e as cores vêm do layout original. */
+[hidden] { display: none !important; }
+.acoes-linha { display: flex; flex-wrap: wrap; gap: var(--esp-2); }
+.barra-lista { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: var(--esp-4); margin-bottom: var(--esp-4); }
+.barra-lista .campo { min-width: min(100%, 280px); max-width: 100%; }
+.resumo-lista { margin: 0; color: var(--cor-texto-suave); }
+.painel-formulario { max-width: 720px; }
+.painel-formulario .formulario { max-width: none; }
+.nota-formulario { font-size: 0.9rem; color: var(--cor-texto-suave); }
+.voltar-lista { display: inline-flex; margin-bottom: var(--esp-4); font-weight: 700; }
+.tabela td { overflow-wrap: anywhere; }
+.tabela__descricao { max-width: 28rem; }
+.tabela__nome { font-weight: 800; }
+.lista-pratos { display: grid; gap: var(--esp-6); }
+.grupo-pratos__titulo { display: flex; flex-wrap: wrap; align-items: center; gap: var(--esp-3); margin-bottom: var(--esp-4); overflow-wrap: anywhere; }
+.cartao-prato { display: flex; flex-direction: column; min-width: 0; }
+.cartao-prato .texto-suave { flex: 1; overflow-wrap: anywhere; }
+.cartao-prato .cartao__titulo { overflow-wrap: anywhere; }
+.cartao-prato .preco { margin-bottom: 0; }
+.cartao-prato .cartao__rodape { border-top: 1px solid var(--cor-borda); padding-top: var(--esp-4); }
+.estado-vazio p:last-child { margin-bottom: 0; }
+#mensagem { overflow-wrap: anywhere; }
+@media (max-width: 620px) {
+  .barra-lista, .barra-lista .campo { width: 100%; }
+  .tabela-categorias thead { display: none; }
+  .tabela-categorias, .tabela-categorias tbody, .tabela-categorias tr, .tabela-categorias td { display: block; width: 100%; }
+  .tabela-categorias tr { padding: var(--esp-3); border-bottom: 1px solid var(--cor-borda); }
+  .tabela-categorias tr:last-child { border-bottom: 0; }
+  .tabela-categorias td { padding: var(--esp-1) 0; border: 0; }
+  .tabela-categorias .acoes-linha { margin-top: var(--esp-2); }
+  .painel-formulario { padding: var(--esp-4); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .carregando::before, .notificacoes .alerta { animation: none; }
+  html { scroll-behavior: auto; }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Organize as categorias do cardápio da Sabor Caseiro." />
+  <title>Categorias — Sabor Caseiro</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+  <link rel="stylesheet" href="css/jose.css" />
+</head>
+<body data-pagina="categorias" data-tela="categorias-lista">
+  <div id="cabecalho"></div>
+  <main class="principal" id="principal">
+    <div class="container">
+      <nav class="trilha" aria-label="Você está em">
+        <ol class="trilha__lista">
+          <li class="trilha__item"><a href="index.html">Início</a></li>
+          <li class="trilha__item" aria-current="page">Categorias</li>
+        </ol>
+      </nav>
+      <div class="cabecalho-pagina">
+        <div>
+          <h1 id="titulo-lista" class="cabecalho-pagina__titulo" tabindex="-1">Categorias</h1>
+          <p class="cabecalho-pagina__subtitulo">Um lugar para cada sabor do seu cardápio.</p>
+        </div>
+        <a class="botao botao--primario" href="categoria-formulario.html">+ Nova categoria</a>
+      </div>
+
+      <div id="mensagem" tabindex="-1" hidden></div>
+      <div id="carregando" class="carregando" role="status">Carregando categorias…</div>
+      <button id="tentar-novamente" class="botao botao--secundario" type="button" hidden>Tentar novamente</button>
+      <section id="conteudo" aria-label="Categorias cadastradas" hidden>
+        <div class="barra-lista">
+          <p id="resumo-categorias" class="resumo-lista" role="status"></p>
+          <span class="texto-suave">Escolha uma categoria para ver seus pratos.</span>
+        </div>
+        <div class="tabela-wrapper" tabindex="0" aria-label="Tabela de categorias; deslize para ver as ações">
+          <table class="tabela tabela-categorias">
+            <caption class="sr-only">Categorias do cardápio e suas ações</caption>
+            <thead>
+              <tr><th scope="col">Categoria</th><th scope="col">Descrição</th><th scope="col">Ações</th></tr>
+            </thead>
+            <tbody id="lista-categorias"></tbody>
+          </table>
+        </div>
+        <p class="nota-formulario texto-suave">Para excluir uma categoria, primeiro remova ou transfira os pratos vinculados a ela.</p>
+      </section>
+      <div id="estado-vazio" class="estado-vazio" hidden>
+        <div class="estado-vazio__icone" aria-hidden="true">🗂️</div>
+        <h2>Seu cardápio começa aqui</h2>
+        <p>Cadastre a primeira categoria para organizar os pratos da casa.</p>
+        <a class="botao botao--primario" href="categoria-formulario.html">Criar categoria</a>
+      </div>
+      <noscript><p class="alerta alerta--aviso">Ative o JavaScript para consultar e gerenciar as categorias.</p></noscript>
+    </div>
+  </main>
+  <div id="rodape"></div>
+  <script src="js/layout.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/categorias.js"></script>
+</body>
+</html>

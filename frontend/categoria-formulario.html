@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nova categoria — Sabor Caseiro</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+  <link rel="stylesheet" href="css/jose.css" />
+</head>
+<body data-pagina="categorias" data-tela="categoria-formulario">
+  <div id="cabecalho"></div>
+  <main class="principal" id="principal">
+    <div class="container">
+      <nav class="trilha" aria-label="Você está em">
+        <ol class="trilha__lista">
+          <li class="trilha__item"><a href="index.html">Início</a></li>
+          <li class="trilha__item"><a href="categorias.html">Categorias</a></li>
+          <li class="trilha__item" id="trilha-formulario" aria-current="page">Nova categoria</li>
+        </ol>
+      </nav>
+      <div class="cabecalho-pagina">
+        <div>
+          <h1 id="titulo-formulario" class="cabecalho-pagina__titulo">Nova categoria</h1>
+          <p class="cabecalho-pagina__subtitulo">Organize os pratos por tipo, ingrediente ou ocasião.</p>
+        </div>
+        <a class="botao botao--secundario" href="categorias.html">Voltar às categorias</a>
+      </div>
+      <div id="mensagem" tabindex="-1" hidden></div>
+      <div id="carregando" class="carregando" role="status">Carregando categoria…</div>
+      <button id="tentar-novamente" class="botao botao--secundario" type="button" hidden>Tentar novamente</button>
+      <form id="formulario" class="formulario cartao painel-formulario" novalidate hidden>
+        <p class="nota-formulario texto-suave">Os campos com <span class="campo__obrigatorio">*</span> são obrigatórios.</p>
+        <div class="campo">
+          <label class="campo__rotulo" for="nome">Nome da categoria <span class="campo__obrigatorio" aria-hidden="true">*</span></label>
+          <input class="campo__entrada" id="nome" name="nome" type="text" required maxlength="100" autocomplete="off" placeholder="Ex.: Marmitas, Saladas, Bebidas" aria-describedby="nome-ajuda nome-erro" />
+          <small class="campo__ajuda" id="nome-ajuda">Até 100 caracteres. Cada categoria precisa ter um nome diferente.</small>
+          <span class="campo__erro" id="nome-erro"></span>
+        </div>
+        <div class="campo">
+          <label class="campo__rotulo" for="descricao">Descrição <span class="texto-suave">(opcional)</span></label>
+          <textarea class="campo__entrada" id="descricao" name="descricao" maxlength="255" rows="4" placeholder="Conte o que os clientes encontram nesta categoria." aria-describedby="descricao-ajuda descricao-erro"></textarea>
+          <small class="campo__ajuda" id="descricao-ajuda">Até 255 caracteres.</small>
+          <span class="campo__erro" id="descricao-erro"></span>
+        </div>
+        <div class="formulario__acoes">
+          <button id="salvar" class="botao botao--primario" type="submit">Salvar categoria</button>
+          <a class="botao botao--secundario" href="categorias.html">Cancelar</a>
+        </div>
+      </form>
+      <noscript><p class="alerta alerta--aviso">Ative o JavaScript para cadastrar ou editar categorias.</p></noscript>
+    </div>
+  </main>
+  <div id="rodape"></div>
+  <script src="js/layout.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/categorias.js"></script>
+</body>
+</html>
