@@ -12,10 +12,16 @@ from api.pratos import pratos_bp
 
 load_dotenv(Path(__file__).with_name(".env"))
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="public", static_url_path="")
 app.config["DATABASE_URL"] = os.getenv("DATABASE_URL")
 app.register_blueprint(pratos_bp)
 app.register_blueprint(categorias_bp)
+
+
+@app.get("/")
+def inicio():
+    return app.send_static_file("index.html")
+
 
 origem = os.getenv("CORS_ORIGIN")
 if origem:
