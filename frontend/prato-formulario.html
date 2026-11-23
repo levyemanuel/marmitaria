@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Novo prato — Sabor Caseiro</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+  <link rel="stylesheet" href="css/jose.css" />
+</head>
+<body data-pagina="pratos" data-tela="prato-formulario">
+  <div id="cabecalho"></div>
+  <main class="principal">
+    <div class="container">
+      <nav class="trilha" aria-label="Você está em"><ol class="trilha__lista">
+        <li class="trilha__item"><a href="index.html">Início</a></li>
+        <li class="trilha__item"><a href="pratos.html">Pratos</a></li>
+        <li id="trilha-formulario" class="trilha__item" aria-current="page">Novo prato</li>
+      </ol></nav>
+      <div class="cabecalho-pagina"><div>
+        <h1 id="titulo-formulario" class="cabecalho-pagina__titulo">Novo prato</h1>
+        <p class="cabecalho-pagina__subtitulo">Escolha uma categoria e conte o que faz parte dessa receita.</p>
+      </div></div>
+      <a id="voltar-pratos" class="voltar-lista" href="pratos.html">← Voltar para pratos</a>
+      <div id="mensagem" role="status" hidden></div>
+      <div id="carregando" class="carregando" role="status">Preparando formulário…</div>
+      <button id="tentar-novamente" class="botao botao--secundario" type="button" hidden>Tentar novamente</button>
+      <div id="sem-categorias" class="estado-vazio" hidden>
+        <div class="estado-vazio__icone" aria-hidden="true">🗂️</div>
+        <h2>Primeiro, crie uma categoria</h2>
+        <p>Todo prato precisa pertencer a uma categoria. Cadastre uma para continuar.</p>
+        <a class="botao botao--primario" href="categoria-formulario.html">Cadastrar categoria</a>
+      </div>
+      <div id="painel-formulario" class="cartao painel-formulario" hidden>
+        <p class="nota-formulario">Os campos com <span class="campo__obrigatorio">*</span> são obrigatórios.</p>
+        <form id="formulario" class="formulario" novalidate>
+          <div class="campo">
+            <label class="campo__rotulo" for="nome">Nome do prato <span class="campo__obrigatorio" aria-hidden="true">*</span></label>
+            <input id="nome" class="campo__entrada" name="nome" type="text" required maxlength="100" autocomplete="off" aria-describedby="nome-erro" placeholder="Ex.: Frango grelhado" />
+            <span id="nome-erro" class="campo__erro"></span>
+          </div>
+          <div class="campo">
+            <label class="campo__rotulo" for="categoria_id">Categoria <span class="campo__obrigatorio" aria-hidden="true">*</span></label>
+            <select id="categoria_id" class="campo__entrada" name="categoria_id" required aria-describedby="categoria_id-erro">
+              <option value="">Selecione uma categoria</option>
+            </select>
+            <span id="categoria_id-erro" class="campo__erro"></span>
+          </div>
+          <div class="campo">
+            <label class="campo__rotulo" for="preco">Preço (R$) <span class="campo__obrigatorio" aria-hidden="true">*</span></label>
+            <input id="preco" class="campo__entrada" name="preco" type="text" inputmode="decimal" required maxlength="11" autocomplete="off" aria-describedby="preco-ajuda preco-erro" placeholder="Ex.: 22,90" />
+            <span id="preco-ajuda" class="campo__ajuda">Maior que zero, com até duas casas decimais. Use vírgula ou ponto, sem separador de milhar.</span>
+            <span id="preco-erro" class="campo__erro"></span>
+          </div>
+          <div class="campo">
+            <label class="campo__rotulo" for="descricao">Descrição <span class="texto-suave">(opcional)</span></label>
+            <textarea id="descricao" class="campo__entrada" name="descricao" maxlength="255" rows="3" aria-describedby="descricao-ajuda descricao-erro" placeholder="Ex.: Acompanha arroz, feijão e farofa"></textarea>
+            <span id="descricao-ajuda" class="campo__ajuda">Até 255 caracteres.</span>
+            <span id="descricao-erro" class="campo__erro"></span>
+          </div>
+          <div class="formulario__acoes">
+            <button class="botao botao--primario" type="submit">Salvar prato</button>
+            <a id="cancelar" class="botao botao--secundario" href="pratos.html">Cancelar</a>
+          </div>
+        </form>
+      </div>
+      <noscript><p class="alerta alerta--aviso">Ative o JavaScript para cadastrar ou editar o prato.</p></noscript>
+    </div>
+  </main>
+  <div id="rodape"></div>
+  <script src="js/layout.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/pratos.js"></script>
+</body>
+</html>
