@@ -1,0 +1,131 @@
+/* ==========================================================================
+   Sabor Caseiro — base.css
+   Variáveis de design (cores, fontes, espaçamentos), reset e tipografia.
+   Todas as telas devem importar este arquivo PRIMEIRO.
+   ========================================================================== */
+
+:root {
+  /* Cores da marca */
+  --cor-primaria: #c2410c;          /* laranja terracota */
+  --cor-primaria-escura: #9a3412;
+  --cor-primaria-clara: #ffedd5;
+  --cor-secundaria: #3f6212;        /* verde folha */
+  --cor-secundaria-clara: #ecfccb;
+
+  /* Neutras */
+  --cor-fundo: #fdf8f3;             /* creme */
+  --cor-superficie: #ffffff;
+  --cor-borda: #eadfd3;
+  --cor-texto: #2b2118;
+  --cor-texto-suave: #6b5d52;
+
+  /* Estados */
+  --cor-sucesso: #15803d;
+  --cor-sucesso-fundo: #dcfce7;
+  --cor-erro: #b91c1c;
+  --cor-erro-fundo: #fee2e2;
+  --cor-aviso: #a16207;
+  --cor-aviso-fundo: #fef9c3;
+  --cor-info: #1d4ed8;
+  --cor-info-fundo: #dbeafe;
+
+  /* Tipografia */
+  --fonte-titulo: "Fraunces", Georgia, serif;
+  --fonte-texto: "Nunito", "Segoe UI", system-ui, sans-serif;
+
+  /* Espaçamentos */
+  --esp-1: 0.25rem;
+  --esp-2: 0.5rem;
+  --esp-3: 0.75rem;
+  --esp-4: 1rem;
+  --esp-5: 1.5rem;
+  --esp-6: 2rem;
+  --esp-7: 3rem;
+
+  /* Bordas e sombras */
+  --raio-p: 6px;
+  --raio-m: 12px;
+  --raio-g: 20px;
+  --sombra-p: 0 1px 3px rgba(43, 33, 24, 0.08);
+  --sombra-m: 0 6px 20px rgba(43, 33, 24, 0.10);
+
+  /* Layout */
+  --largura-max: 1120px;
+  --altura-cabecalho: 68px;
+  --transicao: 0.2s ease;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Tipografia */
+h1, h2, h3, h4 {
+  font-family: var(--fonte-titulo);
+  line-height: 1.2;
+  margin: 0 0 var(--esp-3);
+  color: var(--cor-texto);
+}
+
+h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
+h3 { font-size: 1.25rem; }
+
+p {
+  margin: 0 0 var(--esp-4);
+}
+
+.texto-suave {
+  color: var(--cor-texto-suave);
+}
+
+/* Acessibilidade */
+:focus-visible {
+  outline: 3px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
