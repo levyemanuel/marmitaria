@@ -8,7 +8,7 @@ Branch: `layout-navegacao` · Responsável: Gládson
 ## Estrutura
 
 ```
-frontend/
+public/
 ├── index.html            # Página inicial (já usa o layout)
 ├── modelo-pagina.html    # Modelo para criar novas telas — copie este arquivo
 ├── guia-de-estilos.html  # Vitrine de todos os componentes (botões, tabela, formulário...)
@@ -44,12 +44,21 @@ Para listar os pratos de uma categoria, sugestão: `pratos.html?categoria=ID`.
 | `SaborCaseiro.mostrarErroCampo(id, msg)` | Destaca o campo e mostra a mensagem de erro |
 | `SaborCaseiro.limparErrosFormulario(form)` | Remove os erros exibidos no formulário |
 
-## Visualizar localmente
+## Onde as telas são publicadas
+
+As telas ficam na pasta `public/`, que a Vercel publica como arquivos
+estáticos no mesmo endereço da API: https://marmitaria-orpin.vercel.app.
+Por isso os scripts chamam a API por caminhos relativos (`/api/categorias`,
+`/api/pratos`), sem domínio e sem configurar CORS.
+
+Cada pull request incorporado na `main` é publicado em cerca de 1 minuto.
+
+Para conferir só o visual no computador, sem a API:
 
 ```bash
-cd frontend
+cd public
 python -m http.server 8000
 ```
 
-Abra http://localhost:8000. A API (Flask, `app.py`) roda na porta 3000;
-se a interface ficar em outra origem, ajuste `CORS_ORIGIN` no `.env`.
+Abra http://localhost:8000. As listas vão mostrar erro de conexão, porque
+nesse modo a API não está no mesmo endereço das telas.

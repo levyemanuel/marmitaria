@@ -8,6 +8,7 @@ Sistema web para a marmitaria manter o cardápio organizado por categorias: cada
 
 | Caminho | Conteúdo |
 |---|---|
+| `public/` | Telas (HTML, CSS e JavaScript); veja `public/README.md` |
 | `app.py` | Ponto de entrada da API (Flask) |
 | `api/` | Rotas HTTP de categorias e pratos |
 | `services/` | Validação dos dados recebidos |
@@ -132,4 +133,4 @@ O `app.py` carrega o `.env` com o `python-dotenv`, e `data/conexao.py` abre a co
 ## Publicação
 
 - **Banco:** Supabase, plano gratuito. O projeto pausa depois de 7 dias sem uso, e a aplicação precisa ficar no ar até 10/12. O workflow `manter-banco-ativo` faz uma consulta por dia; ele usa o segredo `DATABASE_URL`, configurado em *Settings → Secrets and variables → Actions*.
-- **Aplicação:** Vercel. Lá, `DATABASE_URL` usa o **Transaction pooler** (porta 6543), indicado para funções serverless.
+- **Aplicação:** Vercel, em https://marmitaria-orpin.vercel.app. As telas de `public/` são servidas como arquivos estáticos e a API (`app.py`) como função, no mesmo endereço, na região de São Paulo. Lá, `DATABASE_URL` usa o **Transaction pooler** (porta 6543), indicado para funções serverless. Cada atualização da `main` é publicada automaticamente.
