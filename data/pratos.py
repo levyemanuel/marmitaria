@@ -12,6 +12,14 @@ def listar(categoria_id=None):
         return conexao.execute(consulta + " ORDER BY id", parametros).fetchall()
 
 
+def buscar(prato_id):
+    with conectar() as conexao:
+        return conexao.execute(
+            "SELECT id, nome, descricao, preco, categoria_id FROM pratos WHERE id = %s",
+            (prato_id,),
+        ).fetchone()
+
+
 def inserir(campos):
     with conectar() as conexao:
         return conexao.execute(

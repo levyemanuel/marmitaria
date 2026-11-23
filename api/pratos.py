@@ -17,6 +17,15 @@ def listar_pratos():
     return jsonify(repositorio_pratos.listar(categoria_id))
 
 
+@pratos_bp.get("/<prato_id>")
+def buscar_prato(prato_id):
+    prato_id = validar_id(prato_id, "id")
+    prato = repositorio_pratos.buscar(prato_id)
+    if prato is None:
+        return jsonify(erro="Prato não encontrado."), 404
+    return jsonify(prato)
+
+
 @pratos_bp.post("")
 def cadastrar_prato():
     campos = validar_dados_prato(request.get_json(silent=True))
