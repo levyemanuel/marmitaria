@@ -9,7 +9,7 @@ Sistema web para a marmitaria manter o cardápio organizado por categorias: cada
 | Caminho | Conteúdo |
 |---|---|
 | `public/` | Telas (HTML, CSS e JavaScript); veja `public/README.md` |
-| `app.py` | Ponto de entrada da API (Flask) |
+| `app.py` | Ponto de entrada da API (Flask); na execução local, também serve as telas de `public/` |
 | `api/` | Rotas HTTP de categorias e pratos |
 | `services/` | Validação dos dados recebidos |
 | `data/` | Acesso ao banco (consultas SQL e conexão) |
@@ -34,7 +34,7 @@ Preencha `DATABASE_URL` no `.env` (veja [Configurar a conexão](#configurar-a-co
 .\.venv\Scripts\python.exe app.py
 ```
 
-A porta padrão é `3000`. Se a interface rodar em outra origem, ajuste `CORS_ORIGIN` para o endereço dela.
+Abra http://localhost:3000: o Flask serve as telas de `public/` e a API no mesmo endereço, como na Vercel. A porta pode ser trocada pela variável `PORT`. Só é preciso configurar `CORS_ORIGIN` se alguma interface rodar em outro endereço.
 
 ## Rotas da API
 

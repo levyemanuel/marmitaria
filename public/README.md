@@ -53,12 +53,6 @@ Por isso os scripts chamam a API por caminhos relativos (`/api/categorias`,
 
 Cada pull request incorporado na `main` é publicado em cerca de 1 minuto.
 
-Para conferir só o visual no computador, sem a API:
-
-```bash
-cd public
-python -m http.server 8000
-```
-
-Abra http://localhost:8000. As listas vão mostrar erro de conexão, porque
-nesse modo a API não está no mesmo endereço das telas.
+Para rodar no computador, siga a seção *Como rodar a API* do README
+principal: o `python app.py` serve as telas e a API juntas em
+http://localhost:3000, do mesmo jeito que na Vercel.
