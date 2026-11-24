@@ -1,4 +1,4 @@
-# Marmitaria Sabor de Casa · Cardápio digital
+# Marmitaria Sabor Caseiro · Cardápio digital
 
 Projeto da disciplina **N695 – Desenvolvimento de Plataformas Web** (Unifor), Grupo 16, cenário 3.
 

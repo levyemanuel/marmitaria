@@ -1,4 +1,4 @@
--- N695 · Cenário 3 · Marmitaria Sabor de Casa
+-- N695 · Cenário 3 · Marmitaria Sabor Caseiro
 -- Estrutura do banco (PostgreSQL / Supabase)
 
 create table categorias (
