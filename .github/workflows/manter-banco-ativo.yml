@@ -1,8 +1,9 @@
 name: Manter banco ativo
 
 # O plano gratuito do Supabase pausa o projeto depois de cerca de 7 dias sem uso.
-# A aplicação precisa ficar no ar até 10/12, então este workflow faz uma consulta
-# simples no banco uma vez por dia.
+# A aplicação precisa ficar no ar até 10/12 (prazo da disciplina), e o grupo
+# decidiu mantê-la até 20/12. Este workflow faz uma consulta simples no banco
+# uma vez por dia até essa data; depois disso, só registra que o período acabou.
 #
 # Requer o segredo DATABASE_URL em Settings > Secrets and variables > Actions
 # (a mesma connection string do .env).
@@ -12,12 +13,28 @@ on:
     - cron: "0 12 * * *" # todo dia às 9h (horário de Brasília)
   workflow_dispatch: # permite rodar manualmente pela aba Actions
 
+env:
+  ULTIMO_DIA: "2026-12-20"
+
 jobs:
   consultar-banco:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Conferir o período
+        id: periodo
+        run: |
+          hoje=$(TZ=America/Sao_Paulo date +%F)
+          if [[ "$hoje" > "$ULTIMO_DIA" ]]; then
+            echo "Período encerrado em $ULTIMO_DIA; o banco não será consultado."
+            echo "ativo=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Consulta diária ativa até $ULTIMO_DIA (hoje: $hoje)."
+            echo "ativo=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Conferir o segredo
+        if: steps.periodo.outputs.ativo == 'true'
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
@@ -27,6 +44,7 @@ jobs:
           fi
 
       - name: Consultar o banco
+        if: steps.periodo.outputs.ativo == 'true'
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |

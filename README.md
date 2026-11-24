@@ -132,5 +132,5 @@ O `app.py` carrega o `.env` com o `python-dotenv`, e `data/conexao.py` abre a co
 
 ## Publicação
 
-- **Banco:** Supabase, plano gratuito. O projeto pausa depois de 7 dias sem uso, e a aplicação precisa ficar no ar até 10/12. O workflow `manter-banco-ativo` faz uma consulta por dia; ele usa o segredo `DATABASE_URL`, configurado em *Settings → Secrets and variables → Actions*.
+- **Banco:** Supabase, plano gratuito. O projeto pausa depois de 7 dias sem uso, e a aplicação precisa ficar no ar até 10/12 (o grupo decidiu mantê-la até 20/12). O workflow `manter-banco-ativo` faz uma consulta por dia até 20/12; a data fica na variável `ULTIMO_DIA` do workflow. Ele usa o segredo `DATABASE_URL`, configurado em *Settings → Secrets and variables → Actions*.
 - **Aplicação:** Vercel, em https://marmitaria-orpin.vercel.app. As telas de `public/` são servidas como arquivos estáticos e a API (`app.py`) como função, no mesmo endereço, na região de São Paulo. Lá, `DATABASE_URL` usa o **Transaction pooler** (porta 6543), indicado para funções serverless. Cada atualização da `main` é publicada automaticamente.
