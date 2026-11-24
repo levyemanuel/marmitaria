@@ -8,6 +8,14 @@ def listar():
         ).fetchall()
 
 
+def buscar(categoria_id):
+    with conectar() as conexao:
+        return conexao.execute(
+            "SELECT id, nome, descricao FROM categorias WHERE id = %s",
+            (categoria_id,),
+        ).fetchone()
+
+
 def inserir(campos):
     with conectar() as conexao:
         return conexao.execute(

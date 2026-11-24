@@ -15,6 +15,15 @@ def listar_categorias():
     return jsonify(repositorio_categorias.listar())
 
 
+@categorias_bp.get("/<categoria_id>")
+def buscar_categoria(categoria_id):
+    categoria_id = validar_id(categoria_id, "id")
+    categoria = repositorio_categorias.buscar(categoria_id)
+    if categoria is None:
+        return jsonify(erro="Categoria não encontrada."), 404
+    return jsonify(categoria)
+
+
 @categorias_bp.post("")
 def cadastrar_categoria():
     campos = validar_dados_categoria(request.get_json(silent=True))
