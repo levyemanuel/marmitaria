@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cardápio digital da marmitaria Sabor Caseiro." />
+  <title>Sabor Caseiro — Cardápio Digital</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+</head>
+<body data-pagina="inicio">
+  <div id="cabecalho"></div>
+
+  <main class="principal">
+    <div class="container">
+      <section class="destaque">
+        <h1>Comida de casa, cardápio sempre em dia</h1>
+        <p>
+          Organize as categorias e os pratos da Sabor Caseiro em um só lugar.
+          Mudou o preço ou acabou um prato? Atualize aqui e todo mundo vê na hora.
+        </p>
+        <div class="cartao__rodape">
+          <a class="botao botao--secundario" href="categorias.html">Ver categorias</a>
+          <a class="botao botao--secundario" href="pratos.html">Ver pratos</a>
+        </div>
+      </section>
+
+      <h2>O que você quer fazer?</h2>
+      <div class="grade-cartoes">
+        <a class="cartao atalho" href="categorias.html">
+          <div class="atalho__icone" aria-hidden="true">🗂️</div>
+          <h3 class="cartao__titulo">Categorias</h3>
+          <p class="texto-suave">Cadastre, edite e organize as categorias do cardápio, como Carnes, Aves e Vegetarianos.</p>
+        </a>
+        <a class="cartao atalho" href="pratos.html">
+          <div class="atalho__icone" aria-hidden="true">🍛</div>
+          <h3 class="cartao__titulo">Pratos</h3>
+          <p class="texto-suave">Gerencie os pratos de cada categoria, com descrição e preço sempre atualizados.</p>
+        </a>
+        <div class="cartao">
+          <div class="atalho__icone" aria-hidden="true">✅</div>
+          <h3 class="cartao__titulo">Regras do cardápio</h3>
+          <ul class="texto-suave">
+            <li>Nome da categoria não pode se repetir</li>
+            <li>Preço do prato deve ser maior que zero</li>
+            <li>Categoria com pratos não pode ser excluída</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="rodape"></div>
+
+  <script src="js/layout.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

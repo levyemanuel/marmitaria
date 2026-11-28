@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+  MODELO DE PÁGINA — Sabor Caseiro
+  Copie este arquivo para criar uma nova tela (ex.: categorias.html, pratos.html).
+  1. Troque o <title> e o data-pagina do <body> ("categorias" ou "pratos").
+  2. Coloque o conteúdo da tela dentro de <div class="container">.
+  3. Adicione o script específico da tela depois de layout.js e ui.js.
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categorias - Sabor Caseiro</title>
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/componentes.css" />
+</head>
+<body data-pagina="categorias">
+  <div id="cabecalho"></div>
+
+  <main class="principal">
+    <div class="container">
+      <nav class="trilha" aria-label="Você está em">
+        <ol class="trilha__lista">
+          <li class="trilha__item"><a href="index.html">Início</a></li>
+          <li class="trilha__item" aria-current="page">Categorias</li>
+        </ol>
+      </nav>
+
+      <div class="cabecalho-pagina">
+        <div>
+          <h1 class="cabecalho-pagina__titulo">Categorias</h1>
+          <p class="cabecalho-pagina__subtitulo">Gerencie as categorias do cardápio da marmitaria.</p>
+        </div>
+        <a class="botao botao--primario" href="#">+ Nova categoria</a>
+      </div>
+
+      <section class="cartao">
+    <h2>Categorias cadastradas</h2>
+
+    <form id="form-categoria">
+        <input type="hidden" id="categoria-id">
+
+        <div>
+            <label for="nome">Nome da categoria</label>
+            <input type="text" id="nome" required>
+        </div>
+
+        <div>
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao"></textarea>
+        </div>
+
+        <button type="submit" id="btn-salvar">
+            Salvar categoria
+        </button>
+
+        <button type="button" id="btn-cancelar" hidden>
+            Cancelar edição
+        </button>
+    </form>
+
+    <div id="mensagem-categorias"></div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="tabela-categorias"></tbody>
+    </table>
+</section>
+    </div>
+  </main>
+
+  <div id="rodape"></div>
+
+  <script src="js/layout.js"></script>
+  <script src="js/ui.js"></script>
+  <!-- <script src="js/categorias.js"></script> -->
+</body>
+</html>
